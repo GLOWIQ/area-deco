@@ -23,8 +23,10 @@ python3 -m http.server 8140 --directory .
 
 Luego abrir <http://localhost:8140>.
 
-> Nota: hay que servirlo por HTTP. Al abrir `index.html` directo con `file://`
-> algunas rutas relativas y las fuentes no cargan bien.
+> También funciona abriendo `index.html` directamente con doble clic (`file://`):
+> todas las rutas de imágenes son relativas y no hay `fetch` ni módulos ES.
+> Lo único que necesita conexión son las fuentes de Google Fonts, y si no cargan
+> el sitio cae a serif/sans del sistema sin romperse.
 
 ## Secciones
 
