@@ -6,14 +6,14 @@
 <title>Area Deco — Decoración de Interiores en Panamá</title>
 <meta name="description" content="Area Deco: decoración de interiores en Ciudad de Panamá. Somos Sabri &amp; Naty. Transformamos espacios y le damos un toque único.">
 <meta property="og:title" content="Area Deco — Decoración de Interiores en Panamá">
-<meta property="og:description" content="Transformamos espacios y le damos un toque único. Decoración de interiores, mobiliario a la medida y proyectos llave en mano en Panamá.">
+<meta property="og:description" content="Transformamos espacios en experiencias. Decoración de interiores, mobiliario a la medida y proyectos llave en mano en Panamá.">
 <meta property="og:image" content="images/penthouse-openplan.jpg">
 <meta property="og:locale" content="es_PA">
 <meta name="theme-color" content="#2B2320">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%232B2320'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23EFE8DE' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%232B2320'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='14' fill='%23EFE8DE' text-anchor='middle'%3EAD%3C/text%3E%3C/svg%3E">
 
 <style>
 /* ============================================================
@@ -25,7 +25,6 @@
   --stone:#DED4C6;
   --taupe:#9E9184;
   --clay:#A2643C;
-  --clay-soft:#C08A5F;
   --espresso:#2B2320;
   --ink:#171310;
   --line:rgba(43,35,32,.14);
@@ -133,22 +132,28 @@ a.frame:hover img{transform:scale(1.045)}
    ============================================================ */
 .hdr{
   position:fixed;inset:0 0 auto;z-index:80;
-  padding-block:clamp(1rem,2vw,1.6rem);
+  padding-block:clamp(.9rem,1.8vw,1.4rem);
   transition:transform .5s var(--ease),background .5s var(--ease),padding .5s var(--ease),box-shadow .5s var(--ease);
 }
 .hdr__in{display:flex;align-items:center;justify-content:space-between;gap:2rem}
 .hdr.scrolled{
   background:rgba(250,247,242,.9);
   -webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);
-  padding-block:.7rem;
+  padding-block:.6rem;
   box-shadow:0 1px 0 var(--line-soft);
 }
 .hdr.hide{transform:translateY(-105%)}
 
-.brand{display:flex;flex-direction:column;line-height:1;color:var(--shell);transition:color .5s var(--ease)}
-.brand b{font-family:var(--f-display);font-weight:400;font-size:clamp(1.25rem,2vw,1.6rem);letter-spacing:.18em}
-.brand span{font-size:.58rem;letter-spacing:.32em;text-transform:uppercase;opacity:.7;margin-top:.45em}
-.hdr.scrolled .brand{color:var(--espresso)}
+/* logo: versión clara sobre el hero, oscura al hacer scroll */
+.brand{display:block;line-height:0}
+.brand__logo{height:clamp(52px,5.2vw,68px);width:auto;transition:height .5s var(--ease)}
+.brand__logo--dark{display:none}
+.hdr.scrolled .brand__logo{height:clamp(42px,4vw,50px)}
+.hdr.scrolled .brand__logo--light{display:none}
+.hdr.scrolled .brand__logo--dark{display:block}
+body.menu-open .hdr{background:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+body.menu-open .hdr .brand__logo--light{display:block}
+body.menu-open .hdr .brand__logo--dark{display:none}
 
 .nav{display:flex;align-items:center;gap:clamp(1.4rem,2.6vw,2.6rem)}
 .nav a{
@@ -252,7 +257,7 @@ body.menu-open .menu li:nth-child(6) a{transition-delay:.44s}
   border-block:1px solid var(--line);background:var(--sand);
   padding-block:clamp(1rem,1.8vw,1.5rem);overflow:hidden;
 }
-.marquee__track{display:flex;width:max-content;animation:slide 46s linear infinite}
+.marquee__track{display:flex;width:max-content;animation:slide 40s linear infinite}
 .marquee:hover .marquee__track{animation-play-state:paused}
 .marquee__grp{display:flex;align-items:center;flex:none}
 .marquee span{
@@ -263,7 +268,7 @@ body.menu-open .menu li:nth-child(6) a{transition-delay:.44s}
 @keyframes slide{to{transform:translateX(-50%)}}
 
 /* ============================================================
-   INTRO
+   NOSOTRAS
    ============================================================ */
 .intro__grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:center}
 @media (max-width:900px){.intro__grid{grid-template-columns:1fr}}
@@ -280,14 +285,32 @@ body.menu-open .menu li:nth-child(6) a{transition-delay:.44s}
 
 .intro__body>*+*{margin-top:clamp(1.2rem,2.4vw,1.9rem)}
 .quote{
-  font-family:var(--f-display);font-style:italic;font-size:var(--step-2);line-height:1.28;
+  margin:0;font-family:var(--f-display);font-style:italic;font-size:var(--step-2);line-height:1.28;
   padding-left:clamp(1rem,2vw,1.6rem);border-left:1px solid var(--clay);color:var(--ink);
 }
-.sig{font-family:var(--f-display);font-size:1.5rem;font-style:italic}
+.quote cite{display:block;margin-top:.8rem;font-family:var(--f-body);font-style:normal;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--taupe)}
+
+/* fundadoras */
+.founders{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:center;margin-top:var(--sec)}
+@media (max-width:900px){.founders{grid-template-columns:1fr}}
+.founders__media{aspect-ratio:3/4;order:2}
+.founders__media img{object-position:center 30%}
+@media (max-width:900px){.founders__media{order:0}}
+.founders__body>*+*{margin-top:clamp(1rem,2vw,1.6rem)}
+.founders__cards{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1rem,2.4vw,2rem);padding-top:clamp(.6rem,1.4vw,1rem)}
+@media (max-width:480px){.founders__cards{grid-template-columns:1fr}}
+.fcard{border-top:1px solid var(--clay);padding-top:1.1rem;display:grid;gap:.35rem;align-content:start}
+.fcard h4{font-size:var(--step-2);font-weight:400}
+.fcard span{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--taupe)}
+.fcard p{color:var(--taupe);font-size:var(--step-0);margin-top:.35rem}
+.fcard__facts{margin:.9rem 0 0;display:grid;gap:.85rem}
+.fcard__facts div{display:grid;gap:.15rem}
+.fcard__facts dt{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--clay)}
+.fcard__facts dd{margin:0;font-family:var(--f-display);font-size:var(--step-1);line-height:1.3;color:var(--espresso)}
 
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border-block:1px solid var(--line);margin-top:var(--sec)}
 @media (max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
-.stat{background:var(--shell);padding:clamp(1.6rem,3vw,2.6rem) clamp(1rem,2vw,1.6rem);text-align:center}
+.stat{background:var(--shell);padding:clamp(1.6rem,3vw,2.6rem) clamp(1rem,2vw,1.6rem);text-align:center;display:flex;flex-direction:column;justify-content:center}
 .stat b{display:block;font-family:var(--f-display);font-size:clamp(1.7rem,3.4vw,2.7rem);line-height:1.1;font-weight:300}
 .stat span{display:block;font-size:var(--step--1);letter-spacing:.18em;text-transform:uppercase;color:var(--taupe);margin-top:.7em}
 
@@ -302,22 +325,21 @@ body.menu-open .menu li:nth-child(6) a{transition-delay:.44s}
 /* ============================================================
    PROYECTOS
    ============================================================ */
-.proj{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:center;padding-block:clamp(2.5rem,5vw,4.5rem);border-top:1px solid var(--line)}
+.proj{padding-block:clamp(2.5rem,5vw,4.5rem);border-top:1px solid var(--line)}
 .proj:first-of-type{border-top:0;padding-top:0}
-@media (max-width:900px){.proj{grid-template-columns:1fr}}
-.proj__media{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
-.proj__media .frame:first-child{grid-column:1/-1;aspect-ratio:16/11}
-.proj__media .frame{aspect-ratio:1/1}
-.proj:nth-child(even) .proj__media{order:2}
-@media (max-width:900px){.proj:nth-child(even) .proj__media{order:0}}
+.proj__head{display:flex;align-items:baseline;gap:clamp(.9rem,2vw,1.6rem);margin-bottom:clamp(1.2rem,2.4vw,2rem)}
+.proj__no{font-family:var(--f-display);font-size:clamp(2.2rem,5vw,3.8rem);line-height:1;color:var(--stone)}
+.proj__head h3{font-size:var(--step-3)}
 
-.proj__no{font-family:var(--f-display);font-size:clamp(2.6rem,6vw,4.6rem);line-height:1;color:var(--stone)}
-.proj__body>*+*{margin-top:clamp(.9rem,1.8vw,1.5rem)}
-.proj__body h3{font-size:var(--step-2)}
-.proj__meta{display:flex;flex-wrap:wrap;gap:.5rem}
-.tag{
-  font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;
-  border:1px solid var(--line);border-radius:999px;padding:.5em 1.1em;color:var(--taupe);
+/* foto grande 2x2 + fotos pequeñas; en los pares la grande va a la derecha */
+.proj__media{display:grid;gap:.7rem;grid-template-columns:repeat(3,1fr);grid-auto-rows:clamp(150px,19vw,290px);grid-auto-flow:dense}
+.proj__media--wide{grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(130px,15vw,240px)}
+.proj__media .frame:first-child{grid-column:1 / span 2;grid-row:span 2}
+.proj:nth-of-type(even) .proj__media .frame:first-child{grid-column:-3 / -1}
+@media (max-width:700px){
+  .proj__media,.proj__media--wide{grid-template-columns:1fr 1fr;grid-auto-rows:clamp(120px,36vw,200px)}
+  .proj__media .frame:first-child,
+  .proj:nth-of-type(even) .proj__media .frame:first-child{grid-column:1 / -1;grid-row:span 2}
 }
 
 /* ============================================================
@@ -346,11 +368,11 @@ body.menu-open .menu li:nth-child(6) a{transition-delay:.44s}
   position:absolute;inset:auto 0 0;padding:1.4rem 1.2rem .95rem;
   background:linear-gradient(transparent,rgba(23,19,16,.8));
   color:var(--shell);display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;
-  opacity:0;transform:translateY(12px);transition:all .5s var(--ease);
+  opacity:0;transform:translateY(12px);transition:all .5s var(--ease);text-align:left;
 }
 .tile:hover .tile__cap,.tile:focus-visible .tile__cap{opacity:1;transform:none}
 .tile__cap b{font-family:var(--f-display);font-weight:400;font-size:1.15rem}
-.tile__cap i{font-style:normal;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;opacity:.72}
+.tile__cap i{font-style:normal;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;opacity:.72;white-space:nowrap}
 .tile.hidden{display:none}
 
 .lb{
@@ -468,14 +490,14 @@ body.menu-open .menu li:nth-child(6) a{transition-delay:.44s}
 .ft__top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:var(--gap);padding-bottom:clamp(2.4rem,5vw,4rem);border-bottom:1px solid rgba(250,247,242,.12)}
 @media (max-width:860px){.ft__top{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.ft__top{grid-template-columns:1fr}}
-.ft .brand{color:var(--shell)}
+.ft__logo{height:clamp(64px,7vw,84px);width:auto}
 .ft__col h4{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(250,247,242,.4);margin-bottom:1.2rem;font-family:var(--f-body);font-weight:400}
 .ft__col ul{list-style:none;margin:0;padding:0;display:grid;gap:.65rem}
 .ft__col a:hover{color:var(--shell)}
 .ft__blurb{max-width:34ch;margin-top:1.4rem;font-size:var(--step-0)}
 .ft__bot{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;padding-top:2rem;font-size:var(--step--1);letter-spacing:.08em}
 
-/* floating whatsapp */
+/* WhatsApp flotante */
 .wa{
   position:fixed;right:clamp(1rem,2.5vw,2rem);bottom:clamp(1rem,2.5vw,2rem);z-index:60;
   width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;
@@ -500,8 +522,8 @@ body.menu-open .menu li:nth-child(6) a{transition-delay:.44s}
 <header class="hdr" id="hdr">
   <div class="wrap hdr__in">
     <a href="#top" class="brand" aria-label="Area Deco — inicio">
-      <b>AREA&nbsp;DECO</b>
-      <span>Decoración de Interiores</span>
+      <img class="brand__logo brand__logo--light" src="images/logo-light.png" alt="Area Deco">
+      <img class="brand__logo brand__logo--dark" src="images/logo-dark.png" alt="" aria-hidden="true">
     </a>
 
     <nav class="nav" aria-label="Principal">
@@ -556,7 +578,7 @@ body.menu-open .menu li:nth-child(6) a{transition-delay:.44s}
     </h1>
 
     <div class="hero__row fade-up">
-      <p>Somos Sabri &amp; Naty. Diseñamos, amoblamos y montamos espacios completos en Panamá — desde la primera idea hasta el último detalle, listos para que solo tengas que llegar.</p>
+      <p>Somos Sabri &amp; Naty. Diseñamos desde la primera idea hasta el último detalle.</p>
       <div class="hero__cta">
         <a href="#proyectos" class="btn btn--light">Ver proyectos</a>
         <a href="https://wa.me/50765506288?text=Hola%20Area%20Deco%2C%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." class="btn btn--light" target="_blank" rel="noopener">Escríbenos
@@ -576,16 +598,20 @@ body.menu-open .menu li:nth-child(6) a{transition-delay:.44s}
       <span>Decoración de Interiores</span><i></i>
       <span>Proyectos Llave en Mano</span><i></i>
       <span>Mobiliario a la Medida</span><i></i>
-      <span>Iluminación</span><i></i>
-      <span>Áreas Sociales</span><i></i>
+      <span>Styling</span><i></i>
+      <span>Decoración de Interiores</span><i></i>
+      <span>Proyectos Llave en Mano</span><i></i>
+      <span>Mobiliario a la Medida</span><i></i>
       <span>Styling</span><i></i>
     </div>
     <div class="marquee__grp">
       <span>Decoración de Interiores</span><i></i>
       <span>Proyectos Llave en Mano</span><i></i>
       <span>Mobiliario a la Medida</span><i></i>
-      <span>Iluminación</span><i></i>
-      <span>Áreas Sociales</span><i></i>
+      <span>Styling</span><i></i>
+      <span>Decoración de Interiores</span><i></i>
+      <span>Proyectos Llave en Mano</span><i></i>
+      <span>Mobiliario a la Medida</span><i></i>
       <span>Styling</span><i></i>
     </div>
   </div>
@@ -598,32 +624,63 @@ body.menu-open .menu li:nth-child(6) a{transition-delay:.44s}
 
       <div class="intro__media rv">
         <div class="frame rv">
-          <img src="images/boucle-terrace.jpg" alt="Butacas en bouclé sobre piso de travertino junto a una puerta corrediza con vista al mar" loading="lazy">
+          <img src="images/living-twosofas.jpg" alt="Sala con dos sofás color crema enfrentados, butacas, otomanas de cuero y cuadro abstracto" loading="lazy">
         </div>
         <div class="badge rv rv-d2">
-          <b>+17K</b><span>Comunidad en Instagram</span>
+          <b>+19K</b><span>Comunidad en Instagram</span>
         </div>
       </div>
 
       <div class="intro__body">
         <p class="eyebrow rv">Nosotras</p>
-        <h2 class="display rv rv-d1">Somos Sabri &amp; Naty.</h2>
+        <h2 class="display rv rv-d1">Transformamos espacios en experiencias.</h2>
         <p class="lede rv rv-d2">Area Deco nació de una idea simple: un espacio está listo cuando ya no hay nada que sobre. Trabajamos con una paleta cálida y tranquila — travertino, microcemento, madera, bouclé y bronce cepillado — y dejamos que la luz haga el resto.</p>
-        <p class="rv rv-d2 muted">Acompañamos cada proyecto de principio a fin: medimos, proponemos el concepto, seleccionamos el mobiliario, coordinamos las compras y montamos el espacio completo. Tú tomas las decisiones importantes; nosotras nos encargamos de todo lo demás.</p>
-        <blockquote class="quote rv rv-d3">“No estamos decorando cuartos. Estamos diseñando la manera en que la luz de la mañana cae sobre una pared.”</blockquote>
-        <div class="rv rv-d3">
-          <p class="sig">Sabri &amp; Naty</p>
-          <p class="muted" style="font-size:var(--step--1);letter-spacing:.16em;text-transform:uppercase">Fundadoras de Area Deco</p>
-        </div>
+        <p class="rv rv-d2 muted">Acompañamos cada proyecto de principio a fin: medimos, proponemos el concepto, seleccionamos el mobiliario, coordinamos las compras y montamos el espacio completo. Juntos tomamos las decisiones importantes, nosotras nos encargamos de todo lo demás.</p>
+        <blockquote class="quote rv rv-d3">
+          “Area Deco crea espacios que se viven.”
+          <cite>Sabri &amp; Naty</cite>
+        </blockquote>
       </div>
 
     </div>
 
+    <!-- Fundadoras -->
+    <div class="founders">
+      <div class="founders__media frame rv">
+        <img src="images/founders.jpg" alt="Sabri y Naty, fundadoras de Area Deco, sentadas junto a un sillón naranja" loading="lazy">
+      </div>
+      <div class="founders__body">
+        <p class="eyebrow rv">Las fundadoras</p>
+        <h3 class="display rv rv-d1">Somos Sabri &amp; Naty.</h3>
+        <p class="lede rv rv-d2">Dos socias con un mismo criterio: espacios cálidos, funcionales y hechos para vivirse.</p>
+        <div class="founders__cards">
+          <article class="fcard rv rv-d2">
+            <h4>Sabri</h4>
+            <span>Cofundadora</span>
+            <dl class="fcard__facts">
+              <div><dt>Si fuese una pieza, sería</dt><dd>Una escultura</dd></div>
+              <div><dt>Mi estilo</dt><dd>Elegante, actual y cálido</dd></div>
+              <div><dt>Fun fact</dt><dd>Desayuno sándwich de chocolate todos los días</dd></div>
+            </dl>
+          </article>
+          <article class="fcard rv rv-d3">
+            <h4>Naty</h4>
+            <span>Cofundadora</span>
+            <dl class="fcard__facts">
+              <div><dt>Si fuese una pieza, sería</dt><dd>Un florero</dd></div>
+              <div><dt>Mi estilo</dt><dd>Boho chic, cozy y atemporal</dd></div>
+              <div><dt>Fun fact</dt><dd>Nutella lover</dd></div>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </div>
+
     <div class="stats">
-      <div class="stat rv"><b>+17K</b><span>Comunidad en Instagram</span></div>
+      <div class="stat rv"><b>+19K</b><span>Comunidad en Instagram</span></div>
       <div class="stat rv rv-d1"><b>Llave en mano</b><span>Proyecto completo</span></div>
-      <div class="stat rv rv-d2"><b>A la medida</b><span>Mobiliario propio</span></div>
-      <div class="stat rv rv-d3"><b>Panamá</b><span>Ciudad y alrededores</span></div>
+      <div class="stat rv rv-d2"><b>Mobiliario</b><span>A la medida</span></div>
+      <div class="stat rv rv-d3"><b>Panamá</b></div>
     </div>
   </div>
 </section>
@@ -637,74 +694,62 @@ body.menu-open .menu li:nth-child(6) a{transition-delay:.44s}
         <p class="eyebrow rv">Proyectos</p>
         <h2 class="display rv rv-d1">Espacios que ya están habitados.</h2>
       </div>
-      <p class="rv rv-d2">Una mirada de cerca a proyectos residenciales y áreas sociales que hemos diseñado y montado en Panamá.</p>
+      <p class="rv rv-d2">Una mirada de cerca a proyectos residenciales y áreas sociales que hemos diseñado.</p>
     </div>
 
     <!-- 01 -->
     <article class="proj">
+      <div class="proj__head rv">
+        <span class="proj__no">01</span>
+        <h3>Residencial</h3>
+      </div>
       <div class="proj__media">
         <div class="frame rv"><img src="images/penthouse-openplan.jpg" alt="Sala principal con sofá curvo, comedor e iluminación en riel frente a ventanales panorámicos" loading="lazy"></div>
-        <div class="frame rv rv-d1"><img src="images/dining-marina.jpg" alt="Comedor con mesa de mármol para doce personas bajo lámparas colgantes en terracota" loading="lazy"></div>
+        <div class="frame rv rv-d1"><img src="images/dining-marina.jpg" alt="Comedor con mesa de mármol bajo lámparas colgantes en terracota" loading="lazy"></div>
         <div class="frame rv rv-d2"><img src="images/terrace-marina.jpg" alt="Terraza techada con muebles tejidos, cocina exterior y vista a la marina" loading="lazy"></div>
-      </div>
-      <div class="proj__body">
-        <p class="proj__no rv">01</p>
-        <h3 class="rv rv-d1">Sala, comedor y terraza</h3>
-        <p class="rv rv-d1 muted">Un piso completo organizado alrededor de una sola línea visual que va de la entrada hasta la terraza. Piso continuo, carpintería en un único tono champán y muebles curvos que dejan que la vista al agua sea lo más brillante del espacio.</p>
-        <div class="proj__meta rv rv-d2">
-          <span class="tag">Llave en mano</span><span class="tag">Carpintería</span><span class="tag">Iluminación</span><span class="tag">Terraza</span>
-        </div>
       </div>
     </article>
 
-    <!-- 02 -->
+    <!-- 02 — PENDIENTE: el cliente enviará una foto nueva para la imagen grande -->
     <article class="proj">
-      <div class="proj__media">
-        <div class="frame rv"><img src="images/living-tvwall.jpg" alt="Sala con mueble de TV empotrado, repisas abiertas y butacas giratorias en bouclé" loading="lazy"></div>
-        <div class="frame rv rv-d1"><img src="images/living-seafront.jpg" alt="Sala frente al mar con sofá de cuero, escultura en bronce y ventanales de piso a techo" loading="lazy"></div>
-        <div class="frame rv rv-d2"><img src="images/detail-coffeetable.jpg" alt="Detalle de mesa de centro con libros de arte, bowl tallado en madera y flores secas" loading="lazy"></div>
+      <div class="proj__head rv">
+        <span class="proj__no">02</span>
+        <h3>Espacios</h3>
       </div>
-      <div class="proj__body">
-        <p class="proj__no rv">02</p>
-        <h3 class="rv rv-d1">Estar con vista al mar</h3>
-        <p class="rv rv-d1 muted">Un apartamento que tenía que verse igual de bien vacío que lleno. El almacenaje desaparece dentro de una pared de repisas de piso a techo; todo lo demás es suave, redondo y movible, para que la sala cambie según cuánta gente haya.</p>
-        <div class="proj__meta rv rv-d2">
-          <span class="tag">Decoración</span><span class="tag">Mobiliario a la medida</span><span class="tag">Arte</span><span class="tag">Styling</span>
-        </div>
+      <div class="proj__media proj__media--wide">
+        <div class="frame rv"><img src="images/living-tvwall.jpg" alt="Sala con mueble de TV empotrado, repisas abiertas y butacas giratorias en bouclé" loading="lazy"></div>
+        <div class="frame rv rv-d1"><img src="images/bedroom.jpg" alt="Habitación con cama tapizada, cojines texturizados, lámpara de bronce y fotografía enmarcada" loading="lazy"></div>
+        <div class="frame rv rv-d1"><img src="images/living-seafront.jpg" alt="Sala frente al mar con sofá de cuero y ventanales de piso a techo" loading="lazy"></div>
+        <div class="frame rv rv-d2"><img src="images/boucle-terrace.jpg" alt="Butacas en bouclé junto a una puerta corrediza con vista al mar" loading="lazy"></div>
+        <div class="frame rv rv-d2"><img src="images/detail-coffeetable.jpg" alt="Mesa de centro con libros de arte, bowl tallado en madera y flores secas" loading="lazy"></div>
       </div>
     </article>
 
     <!-- 03 -->
     <article class="proj">
-      <div class="proj__media">
-        <div class="frame rv"><img src="images/lobby-atrium.jpg" alt="Lobby residencial de doble altura con árboles interiores, cielo raso de listones de madera y salas bajas" loading="lazy"></div>
-        <div class="frame rv rv-d1"><img src="images/lobby-stone.jpg" alt="Sala de lobby con muro de piedra retroiluminado, sofá curvo color crema y otomana de cuero" loading="lazy"></div>
-        <div class="frame rv rv-d2"><img src="images/living-goldenhour.jpg" alt="Sofá seccional en luz de la tarde con tres cuadros en blanco y negro" loading="lazy"></div>
+      <div class="proj__head rv">
+        <span class="proj__no">03</span>
+        <h3>Lobbies</h3>
       </div>
-      <div class="proj__body">
-        <p class="proj__no rv">03</p>
-        <h3 class="rv rv-d1">Lobby y áreas sociales</h3>
-        <p class="rv rv-d1 muted">Áreas comunes pensadas como “un hotel donde además vives”. Dos árboles anclan el volumen de doble altura y un muro de piedra retroiluminado lleva la mirada hacia la sala. Todo detallado para aguantar el uso diario.</p>
-        <div class="proj__meta rv rv-d2">
-          <span class="tag">Áreas sociales</span><span class="tag">Concepto</span><span class="tag">Paisajismo interior</span><span class="tag">Mobiliario</span>
-        </div>
+      <div class="proj__media">
+        <div class="frame rv"><img src="images/lobby-atrium.jpg" alt="Lobby residencial de doble altura con árboles interiores y cielo raso de listones de madera" loading="lazy"></div>
+        <div class="frame rv rv-d1"><img src="images/lobby-stone.jpg" alt="Sala de lobby con muro de piedra retroiluminado, sofá curvo color crema y otomana de cuero" loading="lazy"></div>
+        <div class="frame rv rv-d2"><img src="images/lobby-golf.jpg" alt="Lobby en Bahía del Golf con sofá curvo gris y mesas de centro negras" loading="lazy"></div>
       </div>
     </article>
 
     <!-- 04 -->
     <article class="proj">
-      <div class="proj__media">
-        <div class="frame rv"><img src="images/kitchen-island.jpg" alt="Cocina con isla de piedra en cascada, lámparas colgantes negras y comedor contiguo" loading="lazy"></div>
-        <div class="frame rv rv-d1"><img src="images/dining-sculpture.jpg" alt="Comedor con sillas en bouclé color óxido bajo una lámpara de flecos y escultura amarilla en la pared" loading="lazy"></div>
-        <div class="frame rv rv-d2"><img src="images/duplex-stair.jpg" alt="Sala de dúplex con escalera de madera en voladizo, baranda de vidrio y piso de roble" loading="lazy"></div>
+      <div class="proj__head rv">
+        <span class="proj__no">04</span>
+        <h3>Más espacios</h3>
       </div>
-      <div class="proj__body">
-        <p class="proj__no rv">04</p>
-        <h3 class="rv rv-d1">Cocina, comedor y dúplex</h3>
-        <p class="rv rv-d1 muted">Una isla larga de piedra que sirve para las tareas, la cena y todo lo que pasa en medio. Las paredes en microcemento se mantienen deliberadamente calladas para que una sola escultura amarilla cargue con todo el nivel.</p>
-        <div class="proj__meta rv rv-d2">
-          <span class="tag">Cocina</span><span class="tag">Microcemento</span><span class="tag">Escalera</span><span class="tag">Llave en mano</span>
-        </div>
+      <div class="proj__media proj__media--wide">
+        <div class="frame rv"><img src="images/texas-dining-rope.jpg" alt="Salón del restaurante Texas de Brazil con escultura de cuerdas en el techo y sillas tejidas" loading="lazy"></div>
+        <div class="frame rv rv-d1"><img src="images/office-reception.jpg" alt="Recepción de oficinas deportivas con cielo raso de listones iluminados y piso en espiga" loading="lazy"></div>
+        <div class="frame rv rv-d1"><img src="images/office-boardroom.jpg" alt="Sala de juntas con lámparas circulares y letrero de neón" loading="lazy"></div>
+        <div class="frame rv rv-d2"><img src="images/texas-bar.jpg" alt="Barra de Texas de Brazil con plantas colgantes y bancos de madera" loading="lazy"></div>
+        <div class="frame rv rv-d2"><img src="images/office-lounge.jpg" alt="Sala de espera con butacas en bouclé, piedra texturizada y fotografía de béisbol" loading="lazy"></div>
       </div>
     </article>
 
@@ -720,73 +765,141 @@ body.menu-open .menu li:nth-child(6) a{transition-delay:.44s}
         <p class="eyebrow rv">Galería</p>
         <h2 class="display rv rv-d1">Los espacios, de cerca.</h2>
       </div>
-      <p class="rv rv-d2">Catorce tomas de proyectos terminados. Haz clic en cualquier imagen para verla en grande.</p>
     </div>
 
     <div class="filters rv" role="group" aria-label="Filtrar galería">
       <button class="chip" data-filter="all" aria-pressed="true">Todo</button>
-      <button class="chip" data-filter="sala" aria-pressed="false">Sala</button>
-      <button class="chip" data-filter="cocina" aria-pressed="false">Cocina y Comedor</button>
-      <button class="chip" data-filter="social" aria-pressed="false">Áreas Sociales</button>
+      <button class="chip" data-filter="residencial" aria-pressed="false">Residencial</button>
+      <button class="chip" data-filter="social" aria-pressed="false">Áreas Sociales / Lobbies</button>
       <button class="chip" data-filter="detalle" aria-pressed="false">Detalles</button>
+      <button class="chip" data-filter="oficinas" aria-pressed="false">Oficinas</button>
+      <button class="chip" data-filter="comercial" aria-pressed="false">Comercial</button>
     </div>
 
     <div class="grid" id="grid">
-      <button class="tile" data-cat="sala" data-caption="Sala principal con vista a la bahía">
+      <button class="tile" data-cat="residencial" data-caption="Residencial — Sala principal">
         <img src="images/penthouse-openplan.jpg" alt="Sala y comedor con sofá curvo frente a la bahía" loading="lazy">
-        <span class="tile__cap"><b>Sala principal</b><i>Sala</i></span>
+        <span class="tile__cap"><b>Sala principal</b><i>Residencial</i></span>
       </button>
-      <button class="tile" data-cat="cocina" data-caption="Cocina con isla de piedra en cascada">
-        <img src="images/kitchen-island.jpg" alt="Isla de cocina en piedra con lámparas colgantes negras" loading="lazy">
-        <span class="tile__cap"><b>Cocina con isla</b><i>Cocina</i></span>
+      <button class="tile" data-cat="comercial" data-caption="Texas de Brazil — Salón">
+        <img src="images/texas-dining-rope.jpg" alt="Salón de Texas de Brazil con escultura de cuerdas en el techo" loading="lazy">
+        <span class="tile__cap"><b>Texas de Brazil</b><i>Comercial</i></span>
       </button>
-      <button class="tile" data-cat="social" data-caption="Lobby de doble altura con árboles interiores">
+      <button class="tile" data-cat="residencial" data-caption="Residencial — Habitación">
+        <img src="images/bedroom.jpg" alt="Habitación con cama tapizada, cojines texturizados y lámpara de bronce" loading="lazy">
+        <span class="tile__cap"><b>Habitación</b><i>Residencial</i></span>
+      </button>
+      <button class="tile" data-cat="oficinas" data-caption="Oficinas deportivas — Recepción">
+        <img src="images/office-reception.jpg" alt="Recepción con cielo raso de listones iluminados y piso en espiga" loading="lazy">
+        <span class="tile__cap"><b>Recepción</b><i>Oficinas</i></span>
+      </button>
+      <button class="tile" data-cat="social" data-caption="Lobby — Doble altura">
         <img src="images/lobby-atrium.jpg" alt="Lobby de doble altura con árboles y cielo raso de listones" loading="lazy">
-        <span class="tile__cap"><b>Lobby principal</b><i>Áreas sociales</i></span>
+        <span class="tile__cap"><b>Lobby principal</b><i>Lobbies</i></span>
       </button>
-      <button class="tile" data-cat="sala" data-caption="Estar frente al mar">
+      <button class="tile" data-cat="residencial" data-caption="Residencial — Sala">
+        <img src="images/living-twosofas.jpg" alt="Sala con dos sofás crema enfrentados y otomanas de cuero" loading="lazy">
+        <span class="tile__cap"><b>Sala</b><i>Residencial</i></span>
+      </button>
+      <button class="tile" data-cat="detalle" data-caption="Detalle — Muro de borlas">
+        <img src="images/detail-tassels.jpg" alt="Muro decorativo de borlas tejidas en tonos crema" loading="lazy">
+        <span class="tile__cap"><b>Muro de borlas</b><i>Detalle</i></span>
+      </button>
+      <button class="tile" data-cat="residencial" data-caption="Residencial — Cocina">
+        <img src="images/kitchen-island.jpg" alt="Isla de cocina en piedra con lámparas colgantes negras" loading="lazy">
+        <span class="tile__cap"><b>Cocina con isla</b><i>Residencial</i></span>
+      </button>
+      <button class="tile" data-cat="oficinas" data-caption="Oficinas deportivas — Sala de juntas">
+        <img src="images/office-boardroom.jpg" alt="Sala de juntas con lámparas circulares y letrero de neón" loading="lazy">
+        <span class="tile__cap"><b>Sala de juntas</b><i>Oficinas</i></span>
+      </button>
+      <button class="tile" data-cat="residencial" data-caption="Residencial — Estar frente al mar">
         <img src="images/living-seafront.jpg" alt="Sala frente al mar con sofá de cuero y butacas en bouclé" loading="lazy">
-        <span class="tile__cap"><b>Estar frente al mar</b><i>Sala</i></span>
+        <span class="tile__cap"><b>Estar frente al mar</b><i>Residencial</i></span>
       </button>
-      <button class="tile" data-cat="cocina" data-caption="Comedor con lámparas en terracota">
+      <button class="tile" data-cat="social" data-caption="Lobby — Bahía del Golf">
+        <img src="images/lobby-golf.jpg" alt="Lobby en Bahía del Golf con sofá curvo gris y mesas negras" loading="lazy">
+        <span class="tile__cap"><b>Bahía del Golf</b><i>Lobbies</i></span>
+      </button>
+      <button class="tile" data-cat="comercial" data-caption="Texas de Brazil — Recepción">
+        <img src="images/texas-reception.jpg" alt="Recepción de Texas de Brazil con cielo raso de listones de madera" loading="lazy">
+        <span class="tile__cap"><b>Texas de Brazil</b><i>Comercial</i></span>
+      </button>
+      <button class="tile" data-cat="residencial" data-caption="Residencial — Comedor">
         <img src="images/dining-marina.jpg" alt="Mesa de comedor en mármol bajo lámparas colgantes terracota" loading="lazy">
-        <span class="tile__cap"><b>Comedor principal</b><i>Comedor</i></span>
+        <span class="tile__cap"><b>Comedor</b><i>Residencial</i></span>
       </button>
-      <button class="tile" data-cat="social" data-caption="Sala de lobby con muro de piedra retroiluminado">
+      <button class="tile" data-cat="detalle" data-caption="Detalle — Arte y esculturas">
+        <img src="images/detail-art-credenza.jpg" alt="Credenza con arte enmarcado, figuras en blanco y negro y lirios" loading="lazy">
+        <span class="tile__cap"><b>Arte y esculturas</b><i>Detalle</i></span>
+      </button>
+      <button class="tile" data-cat="residencial" data-caption="Residencial — Pared de TV">
+        <img src="images/living-tvwall-sunset.jpg" alt="Mueble de TV con repisas iluminadas y vista al mar al atardecer" loading="lazy">
+        <span class="tile__cap"><b>Pared de TV</b><i>Residencial</i></span>
+      </button>
+      <button class="tile" data-cat="oficinas" data-caption="Oficinas deportivas — Escalera">
+        <img src="images/office-stair.jpg" alt="Escalera con baranda perforada y mural deportivo" loading="lazy">
+        <span class="tile__cap"><b>Escalera</b><i>Oficinas</i></span>
+      </button>
+      <button class="tile" data-cat="residencial" data-caption="Residencial — Escalera del dúplex">
+        <img src="images/duplex-stair.jpg" alt="Escalera de madera en voladizo con baranda de vidrio" loading="lazy">
+        <span class="tile__cap"><b>Escalera del dúplex</b><i>Residencial</i></span>
+      </button>
+      <button class="tile" data-cat="social" data-caption="Lobby — Sala con muro de piedra">
         <img src="images/lobby-stone.jpg" alt="Sala de lobby con muro de piedra retroiluminado y sofá curvo" loading="lazy">
-        <span class="tile__cap"><b>Sala de lobby</b><i>Áreas sociales</i></span>
+        <span class="tile__cap"><b>Sala de lobby</b><i>Lobbies</i></span>
       </button>
-      <button class="tile" data-cat="sala" data-caption="Butacas en bouclé junto a la terraza">
-        <img src="images/boucle-terrace.jpg" alt="Butacas en bouclé junto a la puerta corrediza hacia el mar" loading="lazy">
-        <span class="tile__cap"><b>Rincón de lectura</b><i>Sala</i></span>
+      <button class="tile" data-cat="residencial" data-caption="Residencial — Comedor con arte">
+        <img src="images/dining-sculpture.jpg" alt="Comedor con sillas en bouclé óxido y escultura amarilla" loading="lazy">
+        <span class="tile__cap"><b>Comedor con arte</b><i>Residencial</i></span>
       </button>
-      <button class="tile" data-cat="detalle" data-caption="Detalle de mesa de centro">
+      <button class="tile" data-cat="comercial" data-caption="Texas de Brazil — Salón principal">
+        <img src="images/texas-dining-hall.jpg" alt="Salón principal de Texas de Brazil con muros de ladrillo y sillas de cuero" loading="lazy">
+        <span class="tile__cap"><b>Texas de Brazil</b><i>Comercial</i></span>
+      </button>
+      <button class="tile" data-cat="detalle" data-caption="Detalle — Mesa de centro">
         <img src="images/detail-coffeetable.jpg" alt="Mesa de centro con libros de arte y bowl de madera" loading="lazy">
         <span class="tile__cap"><b>Mesa de centro</b><i>Detalle</i></span>
       </button>
-      <button class="tile" data-cat="sala" data-caption="Escalera en voladizo del dúplex">
-        <img src="images/duplex-stair.jpg" alt="Escalera de madera en voladizo con baranda de vidrio" loading="lazy">
-        <span class="tile__cap"><b>Escalera del dúplex</b><i>Sala</i></span>
+      <button class="tile" data-cat="residencial" data-caption="Residencial — Rincón de lectura">
+        <img src="images/boucle-terrace.jpg" alt="Butacas en bouclé junto a la puerta corrediza hacia el mar" loading="lazy">
+        <span class="tile__cap"><b>Rincón de lectura</b><i>Residencial</i></span>
       </button>
-      <button class="tile" data-cat="cocina" data-caption="Comedor con escultura amarilla">
-        <img src="images/dining-sculpture.jpg" alt="Comedor con sillas en bouclé óxido y escultura amarilla" loading="lazy">
-        <span class="tile__cap"><b>Comedor con arte</b><i>Comedor</i></span>
+      <button class="tile" data-cat="oficinas" data-caption="Oficinas deportivas — Sala de espera">
+        <img src="images/office-lounge.jpg" alt="Sala de espera con butacas en bouclé y fotografía de béisbol" loading="lazy">
+        <span class="tile__cap"><b>Sala de espera</b><i>Oficinas</i></span>
       </button>
-      <button class="tile" data-cat="sala" data-caption="Mueble de TV empotrado con repisas">
+      <button class="tile" data-cat="residencial" data-caption="Residencial — Mueble de TV">
         <img src="images/living-tvwall.jpg" alt="Mueble de TV empotrado con repisas abiertas y butacas en bouclé" loading="lazy">
-        <span class="tile__cap"><b>Pared de TV</b><i>Sala</i></span>
+        <span class="tile__cap"><b>Mueble de TV</b><i>Residencial</i></span>
       </button>
-      <button class="tile" data-cat="sala" data-caption="Sala con pared de arte">
+      <button class="tile" data-cat="social" data-caption="Lobby — Bahía del Golf">
+        <img src="images/lobby-golf-window.jpg" alt="Pasillo de lobby con cielo raso de listones de madera y ventanal" loading="lazy">
+        <span class="tile__cap"><b>Bahía del Golf</b><i>Lobbies</i></span>
+      </button>
+      <button class="tile" data-cat="residencial" data-caption="Residencial — Sala con arte">
         <img src="images/living-artwall.jpg" alt="Sofá seccional crema bajo cuadros florales junto a una escultura negra" loading="lazy">
-        <span class="tile__cap"><b>Sala con arte</b><i>Sala</i></span>
+        <span class="tile__cap"><b>Sala con arte</b><i>Residencial</i></span>
       </button>
-      <button class="tile" data-cat="social" data-caption="Terraza techada con vista a la marina">
+      <button class="tile" data-cat="comercial" data-caption="Texas de Brazil — Barra">
+        <img src="images/texas-bar.jpg" alt="Barra de Texas de Brazil con plantas colgantes" loading="lazy">
+        <span class="tile__cap"><b>Texas de Brazil</b><i>Comercial</i></span>
+      </button>
+      <button class="tile" data-cat="residencial" data-caption="Residencial — Terraza">
         <img src="images/terrace-marina.jpg" alt="Terraza techada con muebles tejidos y cocina exterior" loading="lazy">
-        <span class="tile__cap"><b>Terraza social</b><i>Áreas sociales</i></span>
+        <span class="tile__cap"><b>Terraza</b><i>Residencial</i></span>
       </button>
-      <button class="tile" data-cat="sala" data-caption="Sala en luz de la tarde">
+      <button class="tile" data-cat="detalle" data-caption="Detalle — Vela y libros">
+        <img src="images/detail-candle.jpg" alt="Vela encendida sobre libro de Moschino en una mesa de centro" loading="lazy">
+        <span class="tile__cap"><b>Vela y libros</b><i>Detalle</i></span>
+      </button>
+      <button class="tile" data-cat="oficinas" data-caption="Oficinas deportivas — Sala de reuniones">
+        <img src="images/office-meeting.jpg" alt="Sala de reuniones con mesa de madera y ventanales hacia vegetación" loading="lazy">
+        <span class="tile__cap"><b>Sala de reuniones</b><i>Oficinas</i></span>
+      </button>
+      <button class="tile" data-cat="residencial" data-caption="Residencial — Luz de la tarde">
         <img src="images/living-goldenhour.jpg" alt="Sofá seccional en luz cálida de la tarde con cuadros enmarcados" loading="lazy">
-        <span class="tile__cap"><b>Luz de la tarde</b><i>Sala</i></span>
+        <span class="tile__cap"><b>Luz de la tarde</b><i>Residencial</i></span>
       </button>
     </div>
 
@@ -802,39 +915,34 @@ body.menu-open .menu li:nth-child(6) a{transition-delay:.44s}
         <p class="eyebrow rv">Servicios</p>
         <h2 class="display rv rv-d1">Hasta donde quieras llevarlo.</h2>
       </div>
-      <p class="rv rv-d2">Puedes contratarnos para un solo ambiente o entregarnos el proyecto completo. Cada servicio funciona solo o dentro de un llave en mano.</p>
+      <p class="rv rv-d2">Nuestro alcance depende de tus necesidades. Puedes contratarnos para un solo ambiente o entregarnos el proyecto completo.</p>
     </div>
 
     <div class="svc">
       <div class="svc__row rv">
         <b>01</b>
         <h3>Decoración de Interiores</h3>
-        <p>Distribución, paleta de materiales, mobiliario y accesorios para que el espacio se sienta terminado.</p>
+        <p>Distribución, acabados y materiales, y mobiliario.</p>
       </div>
       <div class="svc__row rv">
         <b>02</b>
         <h3>Proyecto Llave en Mano</h3>
-        <p>Coordinamos proveedores, compras y montaje de principio a fin. Te entregamos el espacio listo para usar.</p>
+        <p>Coordinamos proveedores, compras y montaje de principio a fin. Te entregamos el espacio listo para vivirlo.</p>
       </div>
       <div class="svc__row rv">
         <b>03</b>
         <h3>Mobiliario a la Medida</h3>
-        <p>Cocinas, muebles de TV, clósets y bibliotecas diseñados por nosotras y fabricados con nuestros talleres.</p>
+        <p>Cocinas, muebles de TV y clósets diseñados por nosotras y fabricados con nuestros talleres.</p>
       </div>
       <div class="svc__row rv">
         <b>04</b>
         <h3>Iluminación</h3>
-        <p>Circuitos por capas, luz indirecta y selección de lámparas para que el ambiente funcione a toda hora.</p>
+        <p>Selección de luminarias funcionales y decorativas, y luces indirectas para crear espacios acogedores.</p>
       </div>
       <div class="svc__row rv">
         <b>05</b>
         <h3>Textiles y Accesorios</h3>
-        <p>Cortinas, cojines, alfombras y piezas decorativas seleccionadas con proveedores locales de confianza.</p>
-      </div>
-      <div class="svc__row rv">
-        <b>06</b>
-        <h3>Áreas Sociales y Lobbies</h3>
-        <p>Proyectos de concepto a entrega para promotoras y PH, detallados para uso diario y mantenimiento fácil.</p>
+        <p>Selección de cortinas, cojines, alfombras y piezas decorativas.</p>
       </div>
     </div>
 
@@ -850,29 +958,29 @@ body.menu-open .menu li:nth-child(6) a{transition-delay:.44s}
         <p class="eyebrow rv">Cómo trabajamos</p>
         <h2 class="display rv rv-d1" style="color:var(--shell)">Cuatro pasos, sin sorpresas.</h2>
       </div>
-      <p class="rv rv-d2">Una estructura clara, con entregables definidos y un presupuesto aprobado antes de mover nada.</p>
+      <p class="rv rv-d2">Una estructura clara, con entregables definidos y un presupuesto aprobado antes de empezar la magia.</p>
     </div>
 
     <div class="proc__grid">
       <div class="step rv">
         <b>01</b>
         <h3>Visita y levantamiento</h3>
-        <p>Nos reunimos en el sitio, tomamos medidas y escuchamos cómo vives el espacio. Salimos con un brief y un rango de presupuesto realista.</p>
+        <p>Nos reunimos en sitio, tomamos medidas y escuchamos cómo vives el espacio. Salimos con un brief y un rango de presupuesto realista.</p>
       </div>
       <div class="step rv rv-d1">
         <b>02</b>
         <h3>Concepto y propuesta</h3>
-        <p>Distribución, referencias, render y tablero de materiales. Ves el ambiente terminado antes de comprar nada.</p>
+        <p>Distribución, referencias, render y/o moodboard. Ves la proyección de cómo quedará tu ambiente.</p>
       </div>
       <div class="step rv rv-d2">
         <b>03</b>
         <h3>Selección y compras</h3>
-        <p>Cotizamos, negociamos con proveedores y coordinamos tiempos de entrega. Te pasamos una lista costeada y clara.</p>
+        <p>Coordinamos con proveedores y nos ponemos manos a la obra.</p>
       </div>
       <div class="step rv rv-d3">
         <b>04</b>
         <h3>Montaje y styling</h3>
-        <p>Supervisamos la instalación, recibimos el mobiliario y hacemos el styling final antes de entregarte el espacio.</p>
+        <p>Supervisamos la instalación, hacemos el styling final y recibes tu espacio hasta con la vela encendida.</p>
       </div>
     </div>
 
@@ -887,16 +995,16 @@ body.menu-open .menu li:nth-child(6) a{transition-delay:.44s}
         <p class="eyebrow rv">Instagram</p>
         <h2 class="display rv rv-d1">@areadeco_panama</h2>
       </div>
-      <p class="rv rv-d2">Publicamos proyectos, procesos y hallazgos casi todos los días. Más de 17 mil personas ya nos siguen.</p>
+      <p class="rv rv-d2">Si aún tienes dudas, conoce nuestros espacios en Instagram.</p>
     </div>
 
     <div class="ig__grid">
-      <a class="frame rv" href="https://www.instagram.com/areadeco_panama/" target="_blank" rel="noopener" aria-label="Ver en Instagram"><img src="images/living-artwall.jpg" alt="Sala con sofá seccional crema y arte enmarcado" loading="lazy"></a>
-      <a class="frame rv rv-d1" href="https://www.instagram.com/areadeco_panama/" target="_blank" rel="noopener" aria-label="Ver en Instagram"><img src="images/dining-sculpture.jpg" alt="Comedor con sillas en bouclé y escultura amarilla" loading="lazy"></a>
-      <a class="frame rv rv-d1" href="https://www.instagram.com/areadeco_panama/" target="_blank" rel="noopener" aria-label="Ver en Instagram"><img src="images/lobby-stone.jpg" alt="Sala de lobby con muro de piedra retroiluminado" loading="lazy"></a>
-      <a class="frame rv rv-d2" href="https://www.instagram.com/areadeco_panama/" target="_blank" rel="noopener" aria-label="Ver en Instagram"><img src="images/detail-coffeetable.jpg" alt="Detalle de mesa de centro" loading="lazy"></a>
-      <a class="frame rv rv-d2" href="https://www.instagram.com/areadeco_panama/" target="_blank" rel="noopener" aria-label="Ver en Instagram"><img src="images/terrace-marina.jpg" alt="Terraza techada con vista a la marina" loading="lazy"></a>
-      <a class="frame rv rv-d3" href="https://www.instagram.com/areadeco_panama/" target="_blank" rel="noopener" aria-label="Ver en Instagram"><img src="images/duplex-stair.jpg" alt="Escalera en voladizo del dúplex" loading="lazy"></a>
+      <a class="frame rv" href="https://www.instagram.com/areadeco_panama/" target="_blank" rel="noopener" aria-label="Ver en Instagram"><img src="images/bedroom.jpg" alt="Habitación con cama tapizada y lámpara de bronce" loading="lazy"></a>
+      <a class="frame rv rv-d1" href="https://www.instagram.com/areadeco_panama/" target="_blank" rel="noopener" aria-label="Ver en Instagram"><img src="images/texas-dining-rope.jpg" alt="Salón de Texas de Brazil" loading="lazy"></a>
+      <a class="frame rv rv-d1" href="https://www.instagram.com/areadeco_panama/" target="_blank" rel="noopener" aria-label="Ver en Instagram"><img src="images/office-boardroom.jpg" alt="Sala de juntas de oficinas deportivas" loading="lazy"></a>
+      <a class="frame rv rv-d2" href="https://www.instagram.com/areadeco_panama/" target="_blank" rel="noopener" aria-label="Ver en Instagram"><img src="images/detail-tassels.jpg" alt="Muro de borlas tejidas" loading="lazy"></a>
+      <a class="frame rv rv-d2" href="https://www.instagram.com/areadeco_panama/" target="_blank" rel="noopener" aria-label="Ver en Instagram"><img src="images/lobby-golf.jpg" alt="Lobby en Bahía del Golf" loading="lazy"></a>
+      <a class="frame rv rv-d3" href="https://www.instagram.com/areadeco_panama/" target="_blank" rel="noopener" aria-label="Ver en Instagram"><img src="images/living-tvwall-sunset.jpg" alt="Sala con vista al mar al atardecer" loading="lazy"></a>
     </div>
 
     <div class="ig__cta rv rv-d3">
@@ -918,7 +1026,7 @@ body.menu-open .menu li:nth-child(6) a{transition-delay:.44s}
     <div>
       <p class="eyebrow rv">Contacto</p>
       <h2 class="rv rv-d1">Cuéntanos de tu espacio.</h2>
-      <p class="rv rv-d2" style="color:rgba(250,247,242,.72);max-width:44ch">Escríbenos con algunos detalles y te respondemos con los próximos pasos y un rango de presupuesto honesto. La primera visita la coordinamos contigo.</p>
+      <p class="rv rv-d2" style="color:rgba(250,247,242,.72);max-width:44ch">Escríbenos con algunos detalles. Coordinamos contigo la primera visita y te respondemos con los próximos pasos y un presupuesto realista.</p>
 
       <dl class="cta__info">
         <div class="rv rv-d2"><dt>WhatsApp / Teléfono</dt><dd><a href="https://wa.me/50765506288" class="ln" target="_blank" rel="noopener">6550-6288</a></dd></div>
@@ -955,11 +1063,11 @@ body.menu-open .menu li:nth-child(6) a{transition-delay:.44s}
           <div class="field">
             <label for="f-type">Tipo de proyecto</label>
             <select id="f-type" name="type">
-              <option>Apartamento / PH</option>
-              <option>Casa</option>
-              <option>Solo cocina</option>
-              <option>Lobby / Áreas sociales</option>
-              <option>Styling y mobiliario</option>
+              <option>Residencial</option>
+              <option>Áreas sociales / Lobbies</option>
+              <option>Detalles</option>
+              <option>Oficinas</option>
+              <option>Comercial</option>
               <option>Otro</option>
             </select>
           </div>
@@ -991,7 +1099,7 @@ body.menu-open .menu li:nth-child(6) a{transition-delay:.44s}
   <div class="wrap">
     <div class="ft__top">
       <div>
-        <a href="#top" class="brand"><b>AREA&nbsp;DECO</b><span>Decoración de Interiores</span></a>
+        <a href="#top" aria-label="Area Deco — inicio"><img class="ft__logo" src="images/logo-light.png" alt="Area Deco" loading="lazy"></a>
         <p class="ft__blurb">Somos Sabri &amp; Naty. Transformamos espacios y le damos un toque único — decoración, mobiliario a la medida y proyectos llave en mano en Panamá.</p>
       </div>
       <div class="ft__col">
@@ -1021,7 +1129,7 @@ body.menu-open .menu li:nth-child(6) a{transition-delay:.44s}
   </div>
 </footer>
 
-<!-- floating whatsapp -->
+<!-- WhatsApp flotante -->
 <a class="wa" href="https://wa.me/50765506288?text=Hola%20Area%20Deco%2C%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.74-.86-2.01-.96-.27-.1-.47-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.63.08-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.19-.24-.57-.48-.5-.66-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.74-.71 1.99-1.4.25-.69.25-1.28.17-1.4-.07-.13-.27-.2-.57-.35M12.05 21.8h-.01a9.8 9.8 0 01-4.99-1.37l-.36-.21-3.71.97.99-3.62-.23-.37a9.78 9.78 0 01-1.5-5.22c0-5.4 4.4-9.8 9.81-9.8 2.62 0 5.08 1.02 6.93 2.88a9.74 9.74 0 012.87 6.93c0 5.4-4.4 9.81-9.8 9.81M20.52 3.45A11.76 11.76 0 0012.05 0C5.5 0 .18 5.33.18 11.87c0 2.09.55 4.13 1.59 5.93L.08 24l6.35-1.66a11.83 11.83 0 005.62 1.43h.01c6.54 0 11.87-5.33 11.87-11.87 0-3.17-1.24-6.15-3.48-8.39"/></svg>
 </a>

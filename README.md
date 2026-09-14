@@ -9,7 +9,7 @@ Todo el contenido está en español (`lang="es"`).
 ```
 area-deco/
 ├── index.html     # sitio completo: HTML + CSS + JS en un solo archivo
-└── images/        # 14 fotos de proyectos entregadas por el cliente
+└── images/        # fotos de proyectos, retrato de las fundadoras y logo (logo-light / logo-dark)
 ```
 
 No hay build ni dependencias. Las únicas peticiones externas son las fuentes de Google Fonts
@@ -58,15 +58,14 @@ campos y lo abre en WhatsApp (`wa.me`). Para recibirlo por email, reemplazar el 
 
 ## Pendiente por confirmar con el cliente
 
+- [ ] Foto grande nueva para el proyecto **02 · Espacios** (hoy usa `living-tvwall.jpg`)
+- [ ] Confirmar la frase: "Area Deco crea espacios que se viven."
 - [ ] Grafía del nombre: **Area Deco** vs **Área Deco** (con tilde)
 - [ ] Correo electrónico de contacto (no aparece público)
-- [ ] Dirección o showroom, si tienen
-- [ ] Nombres, ubicación, metraje y año reales de cada proyecto
-- [ ] Testimonios reales de clientes
-- [ ] Métricas reales (proyectos entregados, años de trayectoria)
+- [ ] Originales en alta de las fotos de Instagram (hoy son recortes de capturas, ~730 px de ancho)
 
-Las estadísticas que se muestran hoy son solo las verificables (+17K seguidores en Instagram,
-llave en mano, mobiliario a la medida, Panamá). No se inventaron cifras ni testimonios.
+Las estadísticas que se muestran son solo las verificables (+19K seguidores en Instagram,
+llave en mano, mobiliario a la medida, Panamá). No se inventaron cifras, testimonios ni biografías.
 
 ## Licencia / uso
 
