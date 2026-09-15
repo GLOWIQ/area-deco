@@ -58,7 +58,6 @@ campos y lo abre en WhatsApp (`wa.me`). Para recibirlo por email, reemplazar el 
 
 ## Pendiente por confirmar con el cliente
 
-- [ ] Foto grande nueva para el proyecto **02 · Espacios** (hoy usa `living-tvwall.jpg`)
 - [ ] Confirmar la frase: "Area Deco crea espacios que se viven."
 - [ ] Grafía del nombre: **Area Deco** vs **Área Deco** (con tilde)
 - [ ] Correo electrónico de contacto (no aparece público)
